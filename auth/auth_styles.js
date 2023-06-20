@@ -5,6 +5,7 @@ const screenWidth = Dimensions.get('window').width;
 
 const authStyles = StyleSheet.create({
     text: {
+        paddingTop: 10,
         fontSize: 20,
         alignItems: 'center',
         justifyContent: 'center'  
@@ -56,8 +57,22 @@ const authStyles = StyleSheet.create({
     loginText: {
         fontSize: 20,
         color: 'white'
-    }
+    },
 
+    reg_button: {
+        marginTop: 10,
+        fontSize: 15,
+        color: '#5e99f7'
+    },
+
+    logo_image:{
+        width: screenWidth * 0.35, 
+        height: screenWidth * 0.35
+    },
+
+    logo_text: {
+        fontSize: 20
+    }
 })
 
 export default authStyles

@@ -1,49 +1,52 @@
 import { StatusBar } from 'expo-status-bar';
-import { Dimensions, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
+import { Dimensions, ScrollView, StyleSheet, Text, TextInput, View, Button } from 'react-native';
 import AuthForm from './auth/auth_form';
+import appstyles from './App_styles';
+
+import { NavigationContainer, DefaultTheme} from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+
 
 const screenWidth = Dimensions.get('window').width;
+
+const Stack = createNativeStackNavigator();
+
+const styles = appstyles
+
+const WhiteBGTheme = {
+  ...DefaultTheme,
+  colors: {
+    ...DefaultTheme.colors,
+    background: 'white'
+  },
+};
+
+
 
 console.log(screenWidth)
 export default function App() {
   return (
-    /*<ScrollView contentContainerStyle = {styles.container}>
-      <View style = {styles.text}>
-        <Text>Текст бла бла</Text>
+    /*
+    <View style ={styles.auth_screen}>
+      <View></View>
+      <AuthForm></AuthForm>
+      <View style = {styles.bottom_nav}>
+        <Text style = {styles.bottom_text}>
+         Copyright rus_VLP 2023
+        </Text>
       </View>
-      <View style = {styles.text}>
-        <Text>Текст бла бла</Text>
-      </View>
-    </ScrollView> */
-   
-    <AuthForm></AuthForm>
-      
+    </View>
+    */
+    <NavigationContainer theme = {WhiteBGTheme}>
+      <Stack.Navigator>
+        <Stack.Screen  options={{headerShown: false}} name = "Login" component={AuthForm}></Stack.Screen>
+      </Stack.Navigator>
+    </NavigationContainer>  
 
   );
 }
 
 
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  text: {
-    alignItems: 'center', 
-    justifyContent: 'center'
-  }, 
 
-  textInput: {
-    borderRadius:5,
-    paddingLeft: 5,
-    height: 30,
-    width: screenWidth * 0.5,
-    borderWidth: 1,
-    borderStyle: 'solid', 
-    borderColor: '#ccc'
-  }
-
-});
