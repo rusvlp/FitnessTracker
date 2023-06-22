@@ -1,13 +1,12 @@
-import {Component} from 'react'
+import {Component, useState} from 'react'
 
 import {Text, TouchableWithoutFeedback} from 'react-native'
 
-class CustomButton extends Component{
-    constructor(props){
-        super(props)
-    }
+function CustomButton (props){
+        this.props = props;
+ 
+        const [isActive, setIsActive] = useState(false)
 
-    render(){
         return(
             <TouchableWithoutFeedback
                 onPress={this.props.onPress}
@@ -15,7 +14,7 @@ class CustomButton extends Component{
                 <Text style={this.props.textStyle}>{this.props.value}</Text>
             </TouchableWithoutFeedback>
         )
-    }
+  
 }
 
 export default CustomButton

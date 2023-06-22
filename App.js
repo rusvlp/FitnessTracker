@@ -1,10 +1,11 @@
 import { StatusBar } from 'expo-status-bar';
 import { Dimensions, ScrollView, StyleSheet, Text, TextInput, View, Button } from 'react-native';
-import AuthForm from './auth/auth_form';
+import AuthForm from './src/screens/auth/auth_form';
 import appstyles from './App_styles';
 
 import { NavigationContainer, DefaultTheme} from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import AppNavigator from './src/navigation/AppNavigator';
 
 
 
@@ -38,11 +39,12 @@ export default function App() {
       </View>
     </View>
     */
-    <NavigationContainer theme = {WhiteBGTheme}>
+    /*<NavigationContainer theme = {WhiteBGTheme}>
       <Stack.Navigator>
         <Stack.Screen  options={{headerShown: false}} name = "Login" component={AuthForm}></Stack.Screen>
       </Stack.Navigator>
-    </NavigationContainer>  
+    </NavigationContainer> */
+    <AppNavigator/>
 
   );
 }
