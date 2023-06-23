@@ -72,6 +72,12 @@ const authStyles = StyleSheet.create({
 
     logo_text: {
         fontSize: 20
+    },
+
+    exit_button_container:{
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center'
     }
 })
 

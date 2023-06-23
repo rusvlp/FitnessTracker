@@ -5,7 +5,7 @@ import {Button, Text, TextInput, TouchableOpacity, View, Image} from 'react-nati
 
 //import auth from './firebase'
 
-import {auth, signInWithEmailAndPassword} from '../../firebase'
+import {auth, signInWithEmailAndPassword, setPersistence, browserLocalPersistence} from '../../firebase'
 
 import {useNavigation} from '@react-navigation/native'
 
@@ -22,11 +22,21 @@ function AuthForm (){
     const navigation = useNavigation();
 
     const handleLogin = (email, password) =>{
-        signInWithEmailAndPassword(auth, email, password)
-        .then(userCredentials => {
-            const user = userCredentials.user;
-            alert("Выполнен вход в систему как: " + user.email)
-        })
+
+        //setPersistence(auth, browserLocalPersistence).then(() => {
+           return signInWithEmailAndPassword(auth, email, password)
+            .then(userCredentials => {
+                const user = userCredentials.user;
+                //alert("Выполнен вход в систему как: " + user.email)
+                navigation.navigate("Main", {type: 'new'})
+            })
+        //}).catch(error => {
+            //alert("Произошла ошибка: " + error)
+        //}).then(() => {
+            
+        //})
+
+        
        // alert("SignUp handled");
     }
 
